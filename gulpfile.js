@@ -5,5 +5,4 @@ function buildIcons() {
 		.pipe(dest('dist/'));
 }
 
-exports.build = buildIcons;
 exports['build:icons'] = buildIcons;

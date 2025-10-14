@@ -3,6 +3,8 @@ dist/
 .eslintcache
 *.log
 .DS_Store
+.idea/
+.vscode/
 .env
 .env.local
 .env.development.local
@@ -11,4 +13,3 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
