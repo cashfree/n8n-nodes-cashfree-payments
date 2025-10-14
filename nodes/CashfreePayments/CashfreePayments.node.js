@@ -5,7 +5,7 @@ class CashfreePayments {
     description = {
         displayName: 'Cashfree Payments',
         name: 'cashfreePayments',
-        icon: 'file:Cashfree-Logo.png',
+        icon: 'https://cashfreelogo.cashfree.com/cashfreepayments/logopng4x/Group_4355.png',
         group: ['transform'],
         version: 1,
         description: 'Interact with Cashfree Payments API',
