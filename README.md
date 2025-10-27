@@ -1,16 +1,18 @@
 # n8n-nodes-cashfree-payments
 
-This is an n8n community node that provides integration with Cashfree Payments API. It allows you to interact with Cashfree's payment gateway services directly from your n8n workflows.
+This is an n8n community node that provides comprehensive integration with Cashfree Payments API. It allows you to interact with Cashfree's payment gateway and payout services directly from your n8n workflows.
 
 ![n8n.io - Workflow Automation](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png)
 
 ## Features
 
-- **Create Orders**: Generate payment orders for transactions
-- **Payment Links**: Create, cancel, and fetch payment link details
-- **Refunds**: Process refunds for completed orders
-- **Cashgrams**: Create payout links for customers
+- **Complete Order Management**: Create orders with extensive customization options
+- **Payment Links**: Create, cancel, fetch details, and get associated orders
+- **Refund Processing**: Create refunds and retrieve refund history
+- **Cashgram Operations**: Create and deactivate payout links
 - **Multi-environment**: Support for both sandbox and production environments
+- **Request Tracking**: Optional headers for debugging and idempotency
+- **Bank Integration**: TPV support with bank account details
 
 ## Installation
 
@@ -50,10 +52,10 @@ You can obtain these credentials from your [Cashfree Dashboard](https://merchant
 ## Operations
 
 ### Create Order
-Creates a new payment order with specified amount, currency, and customer details.
+Creates a new payment order with comprehensive options including customer details, addresses, bank information, and payment preferences.
 
 ### Create Payment Link
-Generates a payment link that can be shared with customers for online payments.
+Generates a payment link with customer details, expiration settings, payment method filtering, and notification options.
 
 ### Cancel Payment Link
 Cancels an existing payment link using its ID.
@@ -61,11 +63,27 @@ Cancels an existing payment link using its ID.
 ### Fetch Payment Link Details
 Retrieves detailed information about a specific payment link.
 
+### Get Orders for Payment Link
+Fetches orders associated with a payment link with status filtering (All orders or Only paid orders).
+
 ### Create Refund
-Processes refunds for completed orders with options for standard or instant refund speed.
+Processes refunds for completed orders with standard or instant speed options.
+
+### Get All Refunds for Order
+Retrieves the complete refund history for a specific order.
 
 ### Create Cashgram
 Creates payout links for sending money to customers (requires Payout Authorization Token).
+
+### Deactivate Cashgram
+Deactivates existing Cashgram payout links.
+
+## Advanced Features
+
+- **Request Tracking**: Optional Request ID and Idempotency Key headers for debugging and safe retries
+- **Bank Integration**: Support for bank account details, IFSC codes, and TPV verification
+- **Payment Method Control**: Filter available payment methods (cards, UPI, net banking, wallets, etc.)
+- **Address Management**: Complete shipping and billing address support
 
 ## Resources
 
@@ -76,10 +94,15 @@ Creates payout links for sending money to customers (requires Payout Authorizati
 ## Version history
 
 ### 1.0.0
-- Initial release
-- Support for orders, payment links, refunds, and cashgrams
+- Initial release with comprehensive Cashfree Payments integration
+- Complete order management with 25+ optional fields
+- Payment link operations (create, cancel, fetch details, get orders)
+- Refund processing (create refunds, get refund history)
+- Cashgram operations (create and deactivate payout links)
+- Request tracking headers for debugging and idempotency
+- Bank integration with TPV support
 - Multi-environment support (sandbox/production)
-- Comprehensive error handling
+- Extensive error handling and validation
 
 ## License
 
