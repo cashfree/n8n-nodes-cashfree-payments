@@ -1,4 +1,9 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type {
+	IAuthenticateGeneric,
+	ICredentialType,
+	INodeProperties,
+	ICredentialTestRequest
+} from 'n8n-workflow';
 
 export class CashfreeApi implements ICredentialType {
 	name = 'cashfreeApi';
@@ -65,4 +70,28 @@ export class CashfreeApi implements ICredentialType {
 			description: 'Environment to use for API calls',
 		},
 	];
+
+	authenticate: IAuthenticateGeneric = {
+		type: 'generic',
+		properties: {
+			headers: {
+				'X-Client-Id': '={{$credentials.clientId}}',
+				'X-Client-Secret': '={{$credentials.clientSecret}}',
+				'x-api-version': '={{$credentials.apiVersion || "2023-08-01"}}',
+			},
+		},
+	};
+
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: '={{$credentials.environment === "production" ? "https://api.cashfree.com" : "https://sandbox.cashfree.com"}}',
+			url: '/pg/orders?limit=1',
+			method: 'GET',
+			headers: {
+				'X-Client-Id': '={{$credentials.clientId}}',
+				'X-Client-Secret': '={{$credentials.clientSecret}}',
+				'x-api-version': '2023-08-01',
+			},
+		},
+	};
 }
