@@ -83,6 +83,8 @@ jobs:
                     email: 'support@cashfree.com',
                     url: 'https://www.cashfree.com'
                   };
+                  // Remove prepublishOnly to avoid rebuilding since we already built in previous job
+                  delete pkg.scripts.prepublishOnly;
                   require('fs').writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
                   "
 
