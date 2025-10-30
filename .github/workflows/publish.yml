@@ -64,17 +64,6 @@ jobs:
                   name: dist
                   path: ./
 
-            - name: Debug - List downloaded files
-              run: |
-                  echo "Files in current directory:"
-                  ls -la
-                  echo "Contents of credentials folder (if exists):"
-                  ls -la credentials/ || echo "credentials folder not found"
-                  echo "Contents of nodes folder (if exists):"
-                  ls -la nodes/ || echo "nodes folder not found"
-                  echo "Contents of dist folder:"
-                  ls -la dist/ || echo "dist folder not found"
-
             - name: Setup Node.js
               uses: actions/setup-node@v6
               with:
@@ -98,13 +87,6 @@ jobs:
                   delete pkg.scripts.prepublishOnly;
                   require('fs').writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
                   "
-
-            - name: Debug - Verify package.json changes
-              run: |
-                  echo "Package name and scripts in package.json:"
-                  cat package.json | grep -A 10 '"name"'
-                  echo "Scripts section:"
-                  cat package.json | grep -A 10 '"scripts"'
 
             - name: Publish to npm
               run: npm publish --access=public
