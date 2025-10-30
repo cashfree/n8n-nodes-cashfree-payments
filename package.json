@@ -1,6 +1,6 @@
 {
   "name": "@cashfreepayments/n8n-nodes-cashfree-payments",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community node for Cashfree Payments API integration - supports orders, payment links, refunds, and cashgrams",
   "keywords": [
     "n8n-community-node-package",
@@ -17,7 +17,6 @@
   "homepage": "https://github.com/cashfree/n8n-nodes-cashfree-payments",
   "author": {
     "name": "Cashfree Payments",
-    "email": "support@cashfree.com",
     "url": "https://www.cashfree.com"
   },
   "repository": {
