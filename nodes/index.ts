@@ -1,5 +1,6 @@
 import { CashfreePayments } from './CashfreePayments/CashfreePayments.node';
-import { CashfreeApi } from '../credentials/CashfreeApi.credentials';
+import { CashfreePaymentGatewayApi } from '../credentials/CashfreePaymentGatewayApi.credentials';
+import { CashfreePayoutApi } from '../credentials/CashfreePayoutApi.credentials';
 
 export const nodes = [CashfreePayments];
-export const credentials = [CashfreeApi];
+export const credentials = [CashfreePaymentGatewayApi, CashfreePayoutApi];

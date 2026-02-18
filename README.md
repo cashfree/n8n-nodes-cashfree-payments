@@ -1,69 +1,95 @@
-# @cashfreepayments/n8n-nodes-cashfree-payments
+# Cashfree Payments for n8n
 
-[//]: # (![Cashfree Payments]&#40;./nodes/CashfreePayments/Cashfree-Logo.png&#41;)
+Integrate [Cashfree Payments](https://www.cashfree.com/) into your n8n workflows. **Trusted by 800,000+ businesses** for payments, payouts, and financial automation.
 
-Integrate [Cashfree Payments](https://www.cashfree.com/) seamlessly into your n8n workflows. **Trusted by 800,000+ businesses** across India and globally for payments, payouts, and financial automation.
+---
 
+## ✨ Features
 
-## Features
+- 🔗 **Payment Links** – Create, cancel, and track payment links
+- 📦 **Orders** – Complete order lifecycle management
+- 💰 **Refunds** – Standard and instant refund processing
+- 🏦 **Cashgram** – Vendor and partner payout links
+- 🌐 **Multi-Environment** – Sandbox and production support
 
-- 🔗 **Payment Links**: Create, cancel, and track payment links with notifications
-- 📦 **Order Management**: Complete order lifecycle with 25+ customization options
-- 💰 **Smart Refunds**: Automated refunds with instant and standard processing
-- 🏦 **Cashgram Payouts**: Secure payout links for vendors and partners
-- 🌐 **Multi-environment**: Seamless sandbox to production workflows
-- 🔍 **Real-time Tracking**: Request IDs and idempotency for debugging
+---
 
-## Perfect For
+## 📦 Installation
 
-- **E-commerce**: Auto-generate payment links, track orders, handle refunds
-- **SaaS/Subscriptions**: Manage recurring payments and plan upgrades  
-- **Marketplaces**: Automate vendor payouts and split payments
-- **Support Teams**: Streamline refund processing and reconciliation
-- **AI Workflows**: Embed payment automation in larger business processes
+**Via n8n Community Nodes (Recommended)**
+1. Settings → Community Nodes → Install
+2. Enter: `@cashfreepayments/n8n-nodes-cashfree-payments`
 
-## Quick Start
-
-### Installation
-
-#### Via n8n Community Nodes (Recommended)
-1. Go to **Settings > Community Nodes** in n8n
-2. Select **Install** 
-3. Enter `@cashfreepayments/n8n-nodes-cashfree-payments`
-4. Accept the community node risks and select **Install**
-
-#### Via npm
+**Via npm**
 ```bash
 npm install @cashfreepayments/n8n-nodes-cashfree-payments
 ```
 
-### Credentials
-Get your credentials from the [Cashfree Dashboard](https://merchant.cashfree.com/):
-- **Client ID** & **Client Secret**: For payment operations
-- **Payout Authorization Token**: For Cashgram operations (optional)
-- **Environment**: Choose sandbox or production
+---
 
-## Available Operations
+## 🔐 Setup Credentials
+
+Get your credentials from [Cashfree Dashboard](https://merchant.cashfree.com/) → Developers → API Keys
+
+### Payment Gateway API
+For orders, payment links, and refunds:
+- Environment (Sandbox/Production)
+- Client ID
+- Client Secret  
+- API Version (default: `2025-01-01`)
+
+### Payout API
+For Cashgram operations:
+- Environment (Sandbox/Production)
+- Payout Client ID
+- Payout Client Secret
+- Payout Public Key
+
+---
+
+## 🚀 Operations
 
 | Operation | Description |
 |-----------|-------------|
-| **Create Order** | Generate payment orders with customer details and preferences |
-| **Create Payment Link** | Generate shareable payment links with expiration and notifications |
-| **Cancel Payment Link** | Cancel existing payment links |
-| **Fetch Payment Link Details** | Get detailed information about payment links |
-| **Get Orders for Payment Link** | Retrieve orders associated with payment links |
-| **Create Refund** | Process refunds with standard or instant speed |
-| **Get All Refunds for Order** | Retrieve complete refund history |
-| **Create Cashgram** | Generate payout links for vendors/partners |
-| **Deactivate Cashgram** | Deactivate existing payout links |
+| **Create Order** | Generate payment orders |
+| **Create Payment Link** | Create shareable payment links |
+| **Cancel Payment Link** | Cancel existing links |
+| **Fetch Payment Link Details** | Get link information |
+| **Get Orders for Payment Link** | Retrieve associated orders |
+| **Create Refund** | Process refunds |
+| **Get All Refunds** | Retrieve refund history |
+| **Create Cashgram** | Generate payout links |
+| **Deactivate Cashgram** | Deactivate payout links |
 
-## Resources
+---
 
-- [Cashfree API Documentation](https://docs.cashfree.com/api-reference/)
+## 💡 Quick Example
+
+**Create a Payment Link:**
+```
+1. Add "Cashfree Payments" node
+2. Select "Create Payment Link"  
+3. Choose Payment Gateway API credential
+4. Fill required fields (email, phone, amount, purpose)
+5. Execute → Get payment link URL
+```
+
+---
+
+## 🛠️ Troubleshooting
+
+**Connection Error?** → Verify Client ID/Secret and environment  
+**400 Bad Request?** → Check required fields in terminal logs  
+**Payout Issues?** → Use Payout API credential (not Payment Gateway)
+
+---
+
+## 📚 Resources
+
+- [Cashfree API Docs](https://docs.cashfree.com/api-reference/)
 - [n8n Documentation](https://docs.n8n.io/)
-- [n8n Community Nodes Guide](https://docs.n8n.io/integrations/community-nodes/)
 - [Cashfree Dashboard](https://merchant.cashfree.com/)
 
 ---
 
-**Version 1.0.0** | Full Cashfree Payments integration with order management, payment links, refunds, and Cashgram payouts | [MIT License](LICENSE.md)
+**v0.1.5** | [Apache License 2.0](LICENSE.md) | [Support](https://www.cashfree.com/contact-us/)
